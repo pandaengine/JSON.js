@@ -1,0 +1,52 @@
+{
+  "222": "bbb",
+  "imgui": {
+    "fontSize": 16.000001,
+    "ScaleAllSizes": 2.342606149341142
+  },
+  "fonts": [
+    [
+      "C:/Windows/Fonts/msyh.ttc",
+      36,
+      true
+    ],
+    [
+      "C:/Windows/Fonts/msyh.ttc",
+      24,
+      true
+    ],
+    [
+      "C:/Windows/Fonts/msyh.ttc",
+      16,
+      true
+    ]
+  ],
+  "mod01": {
+    "modName": "test-mod.js",
+    "date": "2024"
+  },
+  "StatusBarHeight": 56.000001,
+  "HierarchyWidth": 0.25,
+  "InspectorWidth": 0.25,
+  "FPS": 20,
+  "ResolutionPolicy": {
+    "0": "EXACT_FIT",
+    "1": "NO_BORDER",
+    "2": "SHOW_ALL",
+    "3": "FIXED_HEIGHT",
+    "4": "FIXED_WIDTH"
+  },
+  "ResolutionPolicy_enum": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4
+  },
+  "DesignResolutionWidth": 960,
+  "DesignResolutionHeight": 640,
+  "WindowedOn": 1,
+  "WindowedWidth": 1200,
+  "WindowedHeight": 554,
+  "APP_KEY": "APP_KEY"
+}

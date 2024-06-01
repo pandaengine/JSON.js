@@ -1,0 +1,94 @@
+<!--
+/**
+ * Copyright (c) 2024 xiaowang <pandaengine@qq.com>
+ * License http://www.apache.org/licenses/LICENSE-2.0
+ */
+-->
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="utf-8"> 
+	<title></title>
+
+	<style type="text/css">
+	body { }
+	textarea { width: 100%; }
+	</style>
+</head> 
+<body>
+
+<div>
+	<textarea rows="10" placeholder="input code" id="content">
+	enum class Type: uint8_t {
+		None,Action,StopAction,
+		ActionInterval,MoveBy,MoveTo,RotateBy,
+		RepeatForever,Repeat,
+		Sequence,Spawn,
+		Count
+	};
+	</textarea>
+</div>
+
+<div>
+	<input type="button" value="Parse" id="btn"/>
+</div>
+
+<br/>
+
+<textarea rows="26" placeholder="new code" id="content2"></textarea>
+
+<script>
+let content = document.getElementById('content');
+let content2 = document.getElementById('content2');
+let btn = document.getElementById('btn');
+
+btn.onclick = function() {
+	let code = content.value;
+	window.code = code;
+	console.dir(code);
+
+	code = code.substr(code.indexOf('{')+1);
+	code = code.substr(0, code.indexOf('}'));
+	//code = code.replace('\n', '');//\n\t
+	//code = code.replace('\t', '');
+	code = code.replace(/\s*/g,"");
+	console.dir(code);
+
+	let items = code.split(',');
+	/// class
+	let classCode = "class JSEnum {\n";
+	for(let i in items) {
+		let item = items[i];
+		classCode += "\tstatic " + item + " = " + i + ";\n";
+	}
+	classCode += "};\n";
+	//content2.value = classCode;
+	
+	/// const object
+	let constCode = "const JSEnum = {\n";
+	for(let i in items) {
+		let item = items[i];
+		constCode += "\t" + item + ": " + i + ",\n";
+	}
+	constCode += "};\n";
+	
+	content2.value = constCode + "\n" + classCode;
+};
+
+/*
+// JS enum
+const JSEnum = {
+    VALUE1: 1,
+    VALUE2: 2,
+};
+
+class JSEnum { 
+    static VALUE1 = 1,
+    static VALUE2 = 2,  
+};
+
+*/
+</script>
+
+</body>
+</html>
